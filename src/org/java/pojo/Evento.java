@@ -8,7 +8,7 @@ public class Evento {
 	private String title;
 	private LocalDateTime date;
 	private int totalSeats;
-	private static int reservedSeats = 0;
+	private  int reservedSeats = 0;
 	private static final LocalDateTime today = LocalDateTime.now();
 	private static final DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");
 
@@ -32,7 +32,7 @@ public class Evento {
 
 	public void setDate(String date) throws Exception {
 		LocalDateTime dateTime = LocalDateTime.parse(date, dtf);
-		if (dateTime.compareTo(today) >= 0)
+		if (this.compareDate(dateTime) >= 0)
 			throw new Exception("**Inserisci una data valida**");
 		else 
 			this.date = dateTime;
@@ -51,6 +51,18 @@ public class Evento {
 
 	public int getReservedSeats() {
 		return reservedSeats;
+	}
+	
+	public int compareDate(LocalDateTime dateTime) {
+		return dateTime.compareTo(today);
+	}
+	
+	public void prenota() throws Exception{
+		if(this.compareDate(this.date) >= 0 || this.totalSeats == this.reservedSeats) 
+			throw new Exception("Non ci sono più posti disponibili oppure l'evento è concluso");
+		else 
+			this.reservedSeats++;
+			
 	}
 
 	@Override

@@ -7,7 +7,9 @@ public class Main {
 	
 		
 		try {
-			Evento matrimonio = new Evento("Matrimonio", "23/09/2023 11:00:00", 0);
+			Evento matrimonio = new Evento("Matrimonio", "23/09/2023 11:00:00", 100);
+			System.out.println(matrimonio);
+			matrimonio.prenota();
 			System.out.println(matrimonio);
 		} catch (Exception e) {
 			System.out.println(e.getMessage());;
