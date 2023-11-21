@@ -73,8 +73,7 @@ public class Evento {
 
 	@Override
 	public String toString() {
-		return "L'evento " + this.title + " si terrà il " + dtf.format(this.date) + "\n"
-				+ "Il numero di posti totali è " + this.totalSeats + " mentre le prenotazione sono " + reservedSeats;
+		return "L'evento " + this.title + " si terrà il " + dtf.format(this.date);
 	}
 
 }
