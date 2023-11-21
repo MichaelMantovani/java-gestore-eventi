@@ -16,6 +16,14 @@ public class MainEvent {
         } catch (Exception e) {
             e.printStackTrace();
         }
+        
+        try {
+            Evento test2 = new Evento("test2", "23/10/2024", 100);
+            events.add(test2);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        
 
 
         ProgrammaEventi testEventi = new ProgrammaEventi("Test", events);
@@ -29,5 +37,6 @@ public class MainEvent {
             System.out.println(e.getMessage());
         }
         
+        System.out.println("Ci sono " + testEventi.getEventsCount() + " eventi in programma");
     }
 }

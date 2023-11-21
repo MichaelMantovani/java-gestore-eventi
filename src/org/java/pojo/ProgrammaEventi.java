@@ -46,6 +46,10 @@ public class ProgrammaEventi {
 		 return eventInDate;
 	 }
 	
+	public int getEventsCount () {
+		return this.events.size();
+	}
+	
 
 	
 	@Override
