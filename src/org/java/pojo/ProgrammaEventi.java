@@ -1,5 +1,8 @@
 package org.java.pojo;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -30,6 +33,17 @@ public class ProgrammaEventi {
 	
 	 public void addEvento(Evento evento) {
 	        events.add(evento);
+	 }
+	 
+	public List<Evento> getEventInDate(String time){
+		 List<Evento> eventInDate = new ArrayList<Evento>();
+		 LocalDate date = LocalDate.parse(time, DateTimeFormatter.ofPattern("dd/MM/yyyy"));
+		 for (Evento evento : events) {
+			if (evento.getDate().isEqual(date)) {
+				eventInDate.add(evento);
+			}
+		}
+		 return eventInDate;
 	 }
 	
 

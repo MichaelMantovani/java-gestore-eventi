@@ -17,12 +17,6 @@ public class MainEvent {
             e.printStackTrace();
         }
 
-        try {
-            Evento evento2 = new Evento("test", "23/12/2024", 100);
-            events.add(evento2);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
 
         ProgrammaEventi testEventi = new ProgrammaEventi("Test", events);
 
@@ -34,5 +28,6 @@ public class MainEvent {
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
+        
     }
 }
