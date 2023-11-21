@@ -1,16 +1,16 @@
 package org.java.pojo;
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
 public class Evento {
 
 	private String title;
-	private LocalDateTime date;
+	private LocalDate date;
 	private int totalSeats;
 	private  int reservedSeats = 0;
-	private static final LocalDateTime today = LocalDateTime.now();
-	private static final DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");
+	private static final LocalDate today = LocalDate.now();
+	private static final DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 
 	public Evento(String title, String date, int totalSeats) throws Exception {
 		setTitle(title);
@@ -26,12 +26,12 @@ public class Evento {
 		this.title = title;
 	}
 
-	public LocalDateTime getDate() {
+	public LocalDate getDate() {
 		return date;
 	}
 
 	public void setDate(String date) throws Exception {
-		LocalDateTime dateTime = LocalDateTime.parse(date, dtf);
+		LocalDate dateTime = LocalDate.parse(date, dtf);
 		if (this.compareDate(dateTime) <= 0)
 			throw new Exception("**Inserisci una data valida**");
 		else 
@@ -53,7 +53,7 @@ public class Evento {
 		return reservedSeats;
 	}
 	
-	public int compareDate(LocalDateTime dateTime) {
+	public int compareDate(LocalDate dateTime) {
 		return dateTime.compareTo(today);
 	}
 	
