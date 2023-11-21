@@ -32,7 +32,7 @@ public class Evento {
 
 	public void setDate(String date) throws Exception {
 		LocalDateTime dateTime = LocalDateTime.parse(date, dtf);
-		if (this.compareDate(dateTime) >= 0)
+		if (this.compareDate(dateTime) <= 0)
 			throw new Exception("**Inserisci una data valida**");
 		else 
 			this.date = dateTime;
@@ -57,18 +57,18 @@ public class Evento {
 		return dateTime.compareTo(today);
 	}
 	
-	public void prenota() throws Exception{
-		if(this.compareDate(this.date) >= 0 || this.totalSeats == this.reservedSeats) 
-			throw new Exception("Non ci sono più posti disponibili oppure l'evento è concluso");
+	public void prenota(int totalReservation) throws Exception{
+		if(this.compareDate(this.date) <= 0 || this.totalSeats < totalReservation || this.reservedSeats == this.totalSeats) 
+			throw new Exception("Non ci sono abbastanza posti disponibili oppure l'evento è concluso");
 		else 
-			this.reservedSeats++;
+			this.reservedSeats+= totalReservation;
 	}
 	
-	public void disdici() throws Exception {
-		if(this.compareDate(this.date) >= 0 || this.reservedSeats == 0)
-			throw new Exception("Non ci sono posti prenotati da disdire oppure l'evento è concluso");
+	public void disdici(int totalDeleteReservation) throws Exception {
+		if(this.compareDate(this.date) <= 0 || this.reservedSeats == 0 || totalDeleteReservation > this.reservedSeats)
+			throw new Exception("Non ci sono posti prenotati da disdire oppure non ci sono abbastanza posti prenotati oppure  l'evento è concluso");
 		else
-			this.reservedSeats--;
+			this.reservedSeats-= totalDeleteReservation;
 	}
 
 	@Override
