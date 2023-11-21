@@ -8,7 +8,7 @@ import org.java.pojo.Evento;
 public class Main {
 	public static void main(String[] args) {
 		Scanner in = new Scanner(System.in);
-		
+
 //		Provo di creare un concerto
 		try {
 			Concerto metallica = new Concerto("Metallica on tour", "23/10/2024", 20000, "11:00", 50);
@@ -16,7 +16,7 @@ public class Main {
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 		}
-		
+
 //		Chiedo all'untete se vuole creare un evento, se si gli chiedo tutte le informazioni necessarie
 		System.out.println("Vuoi creare un nuovo evento (si/no)?");
 		boolean newEvent = in.nextLine().equals("si") ? true : false;
@@ -80,5 +80,7 @@ public class Main {
 		} else
 			System.out.println("Arrivederci");
 		in.close();
+
 	}
+
 }
