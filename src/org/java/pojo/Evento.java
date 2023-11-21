@@ -9,8 +9,8 @@ public class Evento {
 	private LocalDate date;
 	private int totalSeats;
 	private  int reservedSeats = 0;
-	private static final LocalDate today = LocalDate.now();
-	private static final DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+	static final LocalDate today = LocalDate.now();
+	static final DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 
 	public Evento(String title, String date, int totalSeats) throws Exception {
 		setTitle(title);
