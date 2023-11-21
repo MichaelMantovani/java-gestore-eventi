@@ -11,6 +11,8 @@ public class Main {
 			System.out.println(matrimonio);
 			matrimonio.prenota();
 			System.out.println(matrimonio);
+			matrimonio.disdici();
+			System.out.println(matrimonio);
 		} catch (Exception e) {
 			System.out.println(e.getMessage());;
 		}

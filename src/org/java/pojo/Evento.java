@@ -62,7 +62,13 @@ public class Evento {
 			throw new Exception("Non ci sono più posti disponibili oppure l'evento è concluso");
 		else 
 			this.reservedSeats++;
-			
+	}
+	
+	public void disdici() throws Exception {
+		if(this.compareDate(this.date) >= 0 || this.reservedSeats == 0)
+			throw new Exception("Non ci sono posti prenotati da disdire oppure l'evento è concluso");
+		else
+			this.reservedSeats--;
 	}
 
 	@Override
