@@ -3,6 +3,8 @@ package org.java.pojo;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 
@@ -48,6 +50,15 @@ public class ProgrammaEventi {
 	
 	public int getEventsCount () {
 		return this.events.size();
+	}
+	
+	public void deleteAllEvents () {
+		this.events.clear();
+	}
+	
+	public String toStringFormat() {
+		Collections.sort(events, Comparator.comparing(Evento::getDate));
+		return this.events.toString();
 	}
 	
 

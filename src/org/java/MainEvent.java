@@ -11,15 +11,15 @@ public class MainEvent {
         List<Evento> events = new ArrayList<>();
 
         try {
-            Evento metallica = new Evento("Metallica", "23/10/2024", 100);
-            events.add(metallica);
+        	Evento test2 = new Evento("test2", "23/10/2026", 100);
+        	events.add(test2);
         } catch (Exception e) {
-            e.printStackTrace();
+        	e.printStackTrace();
         }
         
         try {
-            Evento test2 = new Evento("test2", "23/10/2024", 100);
-            events.add(test2);
+            Evento metallica = new Evento("Metallica", "23/10/2024", 100);
+            events.add(metallica);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -38,5 +38,9 @@ public class MainEvent {
         }
         
         System.out.println("Ci sono " + testEventi.getEventsCount() + " eventi in programma");
+        System.out.println(testEventi.toStringFormat());
+        
+
+        
     }
 }
