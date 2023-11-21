@@ -2,6 +2,7 @@ package org.java.pojo;
 
 import java.util.List;
 
+
 public class ProgrammaEventi {
 	private String title;
 	private List<Evento> events;
@@ -26,6 +27,11 @@ public class ProgrammaEventi {
 	public void setEvents(List<Evento> events) {
 		this.events = events;
 	}
+	
+	 public void addEvento(Evento evento) {
+	        events.add(evento);
+	 }
+	
 
 	
 	@Override
